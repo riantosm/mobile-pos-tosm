@@ -1,0 +1,9 @@
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
+export const CEK_USER = 'CEK_USER';
+export const SIGN_UP = 'SIGN_UP';
+export const SIGN_IN = 'SIGN_IN';
+export const GET_USER = 'GET_USER';
+export const SET_FORM_SIGN_UP = 'SET_FORM_SIGN_UP';
+export const SET_FORM_SIGN_IN = 'SET_FORM_SIGN_IN';
+export const SET_LOADING = 'SET_LOADING';
