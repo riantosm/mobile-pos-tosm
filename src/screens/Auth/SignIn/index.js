@@ -34,6 +34,7 @@ const SignIn = ({navigation}) => {
     setIsLoading(true);
     const {username, password} = form;
     if (username.length === 0 || password.length === 0) {
+      setIsLoading(false);
       alert('Tidak boleh kosong');
     } else {
       dispatch(login(form));

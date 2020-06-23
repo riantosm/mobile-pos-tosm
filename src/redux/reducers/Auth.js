@@ -2,7 +2,11 @@ import {CEK_USER, LOGIN, LOGOUT} from '../actions/types';
 
 const initialState = {
   isLogin: true,
-  _id: '',
+  user: {
+    _id: '',
+    fullname_user: '',
+    username: '',
+  },
 };
 
 const authReducers = (state = initialState, action) => {
@@ -20,10 +24,13 @@ const authReducers = (state = initialState, action) => {
       };
     }
     case CEK_USER: {
-      console.log(state._id);
       return {
         ...state,
-        _id: action.payload.data.result._id,
+        user: {
+          _id: action.payload.data.result._id,
+          fullname_user: action.payload.data.result.fullname_user,
+          username: action.payload.data.result.username,
+        },
       };
     }
     default:

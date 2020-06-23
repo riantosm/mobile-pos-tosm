@@ -1,3 +1,5 @@
 import AuthNavigation from './AuthNavigation';
+import Drawer from './Drawer';
+import PagesNavigation from './PagesNavigation';
 
-export {AuthNavigation};
+export {AuthNavigation, PagesNavigation, Drawer};

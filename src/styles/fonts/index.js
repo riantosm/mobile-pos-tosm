@@ -1,8 +1,8 @@
 export const fonts = {
-  comfortaa_bold: 'comfortaa_bold',
-  comfortaa_regular: 'comfortaa_regular',
-  GoogleSans_Bold: 'GoogleSans_Bold',
-  GoogleSans_Reg: 'GoogleSans_Reg',
-  GothaProBol: 'GothaProBol',
-  GothaProReg: 'GothaProReg',
+  Com_Bold: 'Comfortaa_Bold',
+  Com_Reg: 'Comfortaa_Reg',
+  Goo_Bold: 'GoogleSans_Bold',
+  Goo_Reg: 'GoogleSans_Reg',
+  Got_Bol: 'GothaPro_Bol',
+  Got_Reg: 'GothaPro_Reg',
 };
