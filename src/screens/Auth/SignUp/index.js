@@ -25,7 +25,10 @@ const SignUp = ({navigation}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    formValid && (dispatch(registerLoading()), navigation.navigate('SignIn'));
+    formValid &&
+      (dispatch(registerLoading()),
+      navigation.navigate('SignIn'),
+      setIsLoading(false));
     formValid === false && (dispatch(registerLoading()), setIsLoading(false));
   });
 

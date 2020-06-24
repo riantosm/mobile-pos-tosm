@@ -1,9 +1,21 @@
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const CEK_USER = 'CEK_USER';
+
 export const SIGN_UP = 'SIGN_UP';
 export const SIGN_IN = 'SIGN_IN';
 export const GET_USER = 'GET_USER';
+
 export const SET_FORM_SIGN_UP = 'SET_FORM_SIGN_UP';
 export const SET_FORM_SIGN_IN = 'SET_FORM_SIGN_IN';
 export const SET_LOADING = 'SET_LOADING';
+
+export const GET_ALL_CATEGORY = 'GET_ALL_CATEGORY';
+export const SET_FORM_ADD = 'SET_FORM_ADD';
+export const ADD_CATEGORY_SUCCESS = 'ADD_CATEGORY_SUCCESS';
+export const ADD_CATEGORY_FAILED = 'ADD_CATEGORY_FAILED';
+export const EDIT_CATEGORY_SUCCESS = 'EDIT_CATEGORY_SUCCESS';
+export const EDIT_CATEGORY_FAILED = 'EDIT_CATEGORY_FAILED';
+export const SET_FORM_EDIT = 'SET_FORM_EDIT';
+export const DELETE_CATEGORY_SUCCESS = 'DELETE_CATEGORY_SUCCESS';
+export const SET_FORM_CATEGORY = 'SET_FORM_CATEGORY';

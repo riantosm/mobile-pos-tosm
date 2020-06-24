@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {authLogin, authLogout} from './redux/actions/Auth';
-import {AuthNavigation, Drawer} from './router';
+import {AuthNavigation, PagesNavigation} from './router';
 import {Splash} from './screens';
 
 const App = () => {
@@ -31,7 +31,7 @@ const App = () => {
   return (
     <>
       <NavigationContainer>
-        {isLogin ? <Drawer /> : <AuthNavigation />}
+        {isLogin ? <PagesNavigation /> : <AuthNavigation />}
       </NavigationContainer>
     </>
   );

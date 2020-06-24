@@ -22,7 +22,8 @@ const SignIn = ({navigation}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    formValid && (dispatch(loginLoading()), dispatch(authLogin()));
+    formValid &&
+      (dispatch(authLogin()), dispatch(loginLoading()), setIsLoading(false));
     formValid === false && (dispatch(loginLoading()), setIsLoading(false));
   });
 
