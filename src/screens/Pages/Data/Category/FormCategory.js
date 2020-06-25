@@ -16,7 +16,7 @@ import {
 } from '../../../../redux/actions/Category';
 //import { fonts as f, colors as c } from '../../../styles'
 
-const AddCategory = ({route, navigation}) => {
+const FormCategory = ({route, navigation}) => {
   const [isLoading, setIsLoading] = useState(false);
   const {form, formValid} = useSelector(state => state.categoryReducers);
   const dispatch = useDispatch();
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddCategory;
+export default FormCategory;

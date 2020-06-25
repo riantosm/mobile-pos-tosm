@@ -1,5 +1,3 @@
-import {SET_FORM_SIGN_UP, SET_LOADING, SIGN_UP} from '../actions/types';
-
 const initialState = {
   form: {
     firstName: '',
@@ -14,13 +12,13 @@ const initialState = {
 
 const signUpReducers = (state = initialState, action) => {
   switch (action.type) {
-    case SET_FORM_SIGN_UP:
+    case 'SET_FORM_SIGN_UP':
       return {
         ...state,
         form: {...state.form, [action.inputType]: action.inputValue},
         msg: '',
       };
-    case SIGN_UP: {
+    case 'SIGN_UP':
       return action.payload.data.status === 'Success'
         ? {
             ...state,
@@ -38,13 +36,8 @@ const signUpReducers = (state = initialState, action) => {
             formValid: false,
             msg: 'Data invalid',
           };
-    }
-    case SET_LOADING: {
-      return {
-        ...state,
-        formValid: null,
-      };
-    }
+    case 'SET_LOADING':
+      return {...state, formValid: null};
     default:
       return state;
   }

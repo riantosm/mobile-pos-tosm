@@ -1,5 +1,3 @@
-import {CEK_USER, LOGIN, LOGOUT} from '../actions/types';
-
 const initialState = {
   isLogin: true,
   user: {
@@ -11,19 +9,11 @@ const initialState = {
 
 const authReducers = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN: {
-      return {
-        ...state,
-        isLogin: true,
-      };
-    }
-    case LOGOUT: {
-      return {
-        ...state,
-        isLogin: false,
-      };
-    }
-    case CEK_USER: {
+    case 'LOGIN':
+      return {...state, isLogin: true};
+    case 'LOGOUT':
+      return {...state, isLogin: false};
+    case 'CEK_USER': {
       return {
         ...state,
         user: {

@@ -1,41 +1,57 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 import {api} from 'react-native-dotenv';
-import {
-  ADD_CATEGORY_FAILED,
-  ADD_CATEGORY_SUCCESS,
-  DELETE_CATEGORY_SUCCESS,
-  EDIT_CATEGORY_FAILED,
-  EDIT_CATEGORY_SUCCESS,
-  GET_ALL_CATEGORY,
-  SET_FORM_ADD,
-  SET_FORM_CATEGORY,
-  SET_FORM_EDIT,
-  SET_LOADING,
-} from './types';
 
-const categoryLoading = () => ({type: SET_LOADING});
-const getAllCategoryResult = data => ({type: GET_ALL_CATEGORY, payload: data});
-const getAllCategory = () =>
+const categoryLoading = () => ({type: 'SET_LOADING'});
+const loadMore = () => ({type: 'LOAD_MORE'});
+const loadSort = () => ({type: 'LOAD_SORT'});
+const loadSearch = () => ({type: 'LOAD_SEARCH'});
+const loadRefresh = () => ({type: 'LOAD_REFRESH'});
+const loadDeleted = () => ({type: 'LOAD_DELETED'});
+const setForm = (inputType, value) => ({
+  type: 'SET_FORM_CATEGORY',
+  inputType: inputType,
+  inputValue: value,
+});
+
+// get
+const getAllCategoryResult = data => ({
+  type: 'GET_ALL_CATEGORY',
+  payload: data,
+});
+const getAllCategory = (limit, page, sort, sortBy, search, searchBy) =>
   function(dispatch) {
+    limitUrl = `limit=${limit}`;
+    pageUrl = `page=${page}`;
+    sortUrl = `sort=${sort}`;
+    sortByUrl = `sortBy=${sortBy}`;
+    searchUrl = search !== null ? `&search=${search}` : '';
+    searchByUrl = search !== null ? `&searchBy=${searchBy}` : '';
+    let url = `${api}/category?${sortByUrl}&${limitUrl}&${sortUrl}&${pageUrl}${searchUrl}${searchByUrl}`;
     getToken().then(token => {
       axios
-        .get(`${api}/category`, {
+        .get(url, {
           headers: {
             token,
           },
         })
         .then(response => {
+          // console.log(response.data.result);
           dispatch(getAllCategoryResult(response));
         });
     });
   };
-const setFormAdd = () => ({type: SET_FORM_ADD});
+
+// add
+const setFormAdd = () => ({type: 'SET_FORM_ADD'});
 const addCategorySuccess = data => ({
-  type: ADD_CATEGORY_SUCCESS,
+  type: 'ADD_CATEGORY_SUCCESS',
   payload: data,
 });
-const addCategoryFailed = data => ({type: ADD_CATEGORY_FAILED, payload: data});
+const addCategoryFailed = data => ({
+  type: 'ADD_CATEGORY_FAILED',
+  payload: data,
+});
 const addCategory = data =>
   function(dispatch) {
     getToken().then(token => {
@@ -52,12 +68,15 @@ const addCategory = data =>
         });
     });
   };
+
+// edit
+const setFormEdit = data => ({type: 'SET_FORM_EDIT', payload: data});
 const editCategorySuccess = data => ({
-  type: EDIT_CATEGORY_SUCCESS,
+  type: 'EDIT_CATEGORY_SUCCESS',
   payload: data,
 });
 const editCategoryFailed = data => ({
-  type: EDIT_CATEGORY_FAILED,
+  type: 'EDIT_CATEGORY_FAILED',
   payload: data,
 });
 const editCategory = data =>
@@ -76,9 +95,10 @@ const editCategory = data =>
         });
     });
   };
-const setFormEdit = data => ({type: SET_FORM_EDIT, payload: data});
+
+// delete
 const deleteCategorySuccess = data => ({
-  type: DELETE_CATEGORY_SUCCESS,
+  type: 'DELETE_CATEGORY_SUCCESS',
   payload: data,
 });
 const deleteCategory = data =>
@@ -95,19 +115,20 @@ const deleteCategory = data =>
         });
     });
   };
+
+// get token
 const getToken = async () => {
   let token = await AsyncStorage.getItem('token');
   return token;
 };
-const setForm = (inputType, value) => ({
-  type: SET_FORM_CATEGORY,
-  inputType: inputType,
-  inputValue: value,
-});
 
 export {
   categoryLoading,
-  getAllCategoryResult,
+  loadMore,
+  loadSort,
+  loadSearch,
+  loadRefresh,
+  loadDeleted,
   getAllCategory,
   setFormAdd,
   addCategory,

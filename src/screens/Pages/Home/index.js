@@ -10,7 +10,7 @@ const Home = props => {
 
   useEffect(() => {
     dispatch(cekUser());
-    dispatch(getAllCategory());
+    dispatch(getAllCategory(10, 1, 'asc', '_id', null, null));
   }, []);
 
   return (

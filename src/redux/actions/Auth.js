@@ -1,11 +1,10 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 import {api} from 'react-native-dotenv';
-import {CEK_USER, LOGIN, LOGOUT} from './types';
 
-const authLogin = () => ({type: LOGIN});
-const authLogout = () => ({type: LOGOUT});
-const cekUserResult = token => ({type: CEK_USER, payload: token});
+const authLogin = () => ({type: 'LOGIN'});
+const authLogout = () => ({type: 'LOGOUT'});
+const cekUserResult = token => ({type: 'CEK_USER', payload: token});
 const cekUser = () =>
   function(dispatch) {
     getToken().then(token => {
@@ -25,4 +24,4 @@ const getToken = async () => {
   return token;
 };
 
-export {authLogin, authLogout, cekUserResult, cekUser};
+export {authLogin, authLogout, cekUser};

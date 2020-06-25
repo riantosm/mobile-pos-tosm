@@ -1,9 +1,8 @@
 import axios from 'axios';
 import {api} from 'react-native-dotenv';
-import {SET_FORM_SIGN_UP, SET_LOADING, SIGN_UP} from './types';
 
-const registerLoading = () => ({type: SET_LOADING});
-const registerResult = data => ({type: SIGN_UP, payload: data});
+const registerLoading = () => ({type: 'SET_LOADING'});
+const registerResult = data => ({type: 'SIGN_UP', payload: data});
 const register = data =>
   function(dispatch) {
     const {firstName, lastName, username, password} = data;
@@ -14,7 +13,7 @@ const register = data =>
     });
   };
 const setForm = (inputType, value) => ({
-  type: SET_FORM_SIGN_UP,
+  type: 'SET_FORM_SIGN_UP',
   inputType: inputType,
   inputValue: value,
 });
