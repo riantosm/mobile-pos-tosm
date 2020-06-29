@@ -3,6 +3,7 @@ import thunkMiddleware from 'redux-thunk';
 import {
   authReducers,
   categoryReducers,
+  productReducers,
   signInReducers,
   signUpReducers,
 } from './reducers';
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   signInReducers,
   authReducers,
   categoryReducers,
+  productReducers,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));

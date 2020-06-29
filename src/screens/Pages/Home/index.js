@@ -4,6 +4,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {cekUser} from '../../../redux/actions/Auth';
 import {getAllCategory} from '../../../redux/actions/Category';
+import {getAllProduct} from '../../../redux/actions/Product';
 
 const Home = props => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const Home = props => {
   useEffect(() => {
     dispatch(cekUser());
     dispatch(getAllCategory(10, 1, 'asc', '_id', null, null));
+    dispatch(getAllProduct(10, 1, 'asc', '_id', null, null));
   }, []);
 
   return (

@@ -1,20 +1,23 @@
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
+import {
+  ListCategory,
+  FormCategory,
+  ListProduct,
+  FormProduct,
+} from '../../screens';
 import {BottomNavigation} from '..';
-import {DrawerComp} from '../../components';
-import {FormCategory, Dummy, ListCategory} from '../../screens';
 
-const DraNav = createDrawerNavigator();
+const Stack = createStackNavigator();
 
 const PagesNavigation = () => (
-  <DraNav.Navigator drawerContent={props => <DrawerComp {...props} />}>
-    <DraNav.Screen name="HomeDrawer" component={BottomNavigation} />
-    <DraNav.Screen name="ListCategory" component={ListCategory} />
-    <DraNav.Screen name="FormCategory" component={FormCategory} />
-    <DraNav.Screen name="ListProduct" component={Dummy} />
-
-    <DraNav.Screen name="Cart" component={Dummy} />
-  </DraNav.Navigator>
+  <Stack.Navigator headerMode="none">
+    <Stack.Screen name="BottomNavigation" component={BottomNavigation} />
+    <Stack.Screen name="ListCategory" component={ListCategory} />
+    <Stack.Screen name="FormCategory" component={FormCategory} />
+    <Stack.Screen name="ListProduct" component={ListProduct} />
+    <Stack.Screen name="FormProduct" component={FormProduct} />
+  </Stack.Navigator>
 );
 
 export default PagesNavigation;
